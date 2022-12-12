@@ -9,7 +9,9 @@ function Form(props) {
     if (!name.trim()) {
       return;
     }
-    props.addTask(name);
+    if (name.length <= 20) {
+      props.addTask(name);
+    }
     setName("");
   }
 
@@ -22,7 +24,7 @@ function Form(props) {
     <form onSubmit={handleSubmit}>
       <h2 className="label-wrapper">
         <label htmlFor="new-todo-input" className="label__lg">
-          What needs to be done?
+          What needs to be done? (max length is 20)
         </label>
       </h2>
 
