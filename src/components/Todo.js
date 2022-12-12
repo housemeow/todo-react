@@ -27,7 +27,9 @@ export default function Todo(props) {
     if (!newName.trim()) {
       return;
     }
-    props.editTask(props.id, newName);
+    if (newName.length <= 20) {
+      props.editTask(props.id, newName);
+    }
     setNewName("");
     setEditing(false);
   }
